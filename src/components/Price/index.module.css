@@ -1,0 +1,8 @@
+.priceSection {
+  width: 60%;
+  margin: 0 auto;
+  padding: .25rem;
+  background-color: #fff;
+  direction: rtl;
+  font-weight: bold;
+}

@@ -5,6 +5,7 @@ import './App.css'
 
 import MainContainer from './containers/MainContainer'
 import Content from './containers/Content'
+import Price from './components/Price'
 
 import SeatContext from './store/SeatContext'
 
@@ -33,6 +34,7 @@ export default () => {
       <div className='App'>
         <MainContainer>
           <Content />
+          <Price />
         </MainContainer>
       </div>
     </SeatContext.Provider>
