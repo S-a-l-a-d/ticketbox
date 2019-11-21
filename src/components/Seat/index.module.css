@@ -1,0 +1,33 @@
+.seat {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin: 1px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 40%;
+}
+
+.standard {
+  composes: seat;
+
+  border-color: #a6a6a6;
+}
+
+.vip {
+  composes: seat;
+
+  border-color: #178534;
+}
+
+.deluxe {
+  composes: seat;
+
+  border-color: #00f;
+}
+
+.selected {
+  composes: seat;
+
+  background-color: #fff;
+}

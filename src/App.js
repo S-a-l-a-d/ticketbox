@@ -1,28 +1,40 @@
 // @flow
 
-import React from 'react'
-import logo from './logo.svg'
+import React, { useState } from 'react'
 import './App.css'
 
-function App () {
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  )
+import MainContainer from './containers/MainContainer'
+import Content from './containers/Content'
+
+import SeatContext from './store/SeatContext'
+
+const initialSeats: boolean[][] = []
+
+for (let i = 0; i < 12; i++) {
+  initialSeats[i] = []
+
+  for (let j = 0; j < 12; j++) {
+    initialSeats[i][j] = false
+  }
 }
 
-export default App
+export default () => {
+  const [seats, setSeats] = useState(initialSeats)
+  const [selectedSeats, setSelectedSeats] = useState([])
+
+  return (
+    <SeatContext.Provider value={{
+      seats,
+      setSeats: newSeats => setSeats(newSeats),
+      selectedSeats,
+      setSelectedSeats: newSelectedSeats => setSelectedSeats(newSelectedSeats)
+    }}
+    >
+      <div className='App'>
+        <MainContainer>
+          <Content />
+        </MainContainer>
+      </div>
+    </SeatContext.Provider>
+  )
+}
